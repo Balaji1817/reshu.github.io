@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #ffafbd, #ffc3a0);
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        .container {
+            margin-top: 50px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .title {
+            font-size: 3em;
+            color: #fff;
+            margin-bottom: 20px;
+            animation: scaleUp 3s ease-in-out;
+        }
+
+        .photos img {
+            width: 300px;
+            margin: 15px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .photos img:hover {
+            transform: scale(1.1) rotate(10deg);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .confetti {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes scaleUp {
+            0% { transform: scale(0.5); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(100vh); }
+        }
+
+        .confetti-piece {
+            position: absolute;
+            width: 10px;
+            height: 20px;
+            background-color: #fff;
+            animation: float 5s linear infinite;
+            opacity: 0.7;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .confetti-piece:nth-child(odd) {
+            background-color: #ffd700;
+        }
+
+        .confetti-piece:nth-child(even) {
+            background-color: #ff69b4;
+        }
+
+        .glow {
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 165, 0, 0.6), 0 0 30px rgba(255, 69, 0, 0.4);
+            transition: text-shadow 0.3s ease-in-out;
+        }
+
+        .sparkle {
+            animation: sparkle 2s infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 1; transform: rotate(0deg); }
+            50% { opacity: 0.5; transform: rotate(15deg); }
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const confettiContainer = document.createElement('div');
+            confettiContainer.classList.add('confetti');
+            document.body.appendChild(confettiContainer);
+            
+            for (let i = 0; i < 100; i++) {
+                const confettiPiece = document.createElement('div');
+                confettiPiece.classList.add('confetti-piece');
+                confettiPiece.style.left = Math.random() * 100 + 'vw';
+                confettiPiece.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                confettiPiece.style.animationDelay = Math.random() * 2 + 's';
+                confettiContainer.appendChild(confettiPiece);
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title glow">Happy Birthday, Reshuu </h1>
+        <p class="sparkle">Wishing you a day as special and beautiful as you are! </p>
+        <p class="sparkle">Have Great life Geli, Stay blessed forever</p>
+        <div class="photos">
+            <img src="reshuu1.jpg" alt="Happy Memory 1">
+            <img src="reshuu2.jpg" alt="Happy Memory 2">
+            <img src="reshuu3.jpg" alt="Happy Memory 3">
+        </div>
+    </div>
+</body>
+</html>
